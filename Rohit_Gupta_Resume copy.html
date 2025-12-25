@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Gupta - Java Full Stack Developer</title>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: #fff;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 3px;
+            font-size: 16px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2c3e50;
+            padding: 8px;
+        }
+
+        .name {
+            font-size: 2em;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.9em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 18px;
+            padding: 0 3px;
+        }
+
+        .section-title {
+            font-size: 1.15em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 3px;
+        }
+
+        .objective {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #000;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 3.3fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .skill-category {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .skill-list {
+            color: #000;
+        }
+
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 15px;
+        }
+
+        .job-header, .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+            flex-wrap: wrap;
+        }
+
+        .job-title, .degree {
+            font-weight: bold;
+            font-size: 1.15em;
+            color: #2c3e50;
+        }
+
+        .company, .institution {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .duration, .location {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .job-description ul, .project-description ul {
+            margin-top: 5px;
+            padding-left: 18px;
+        }
+
+        .job-description li, .project-description li {
+            margin-bottom: 3px;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .project-link {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .achievements-list, .certifications-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li, .certifications-list li {
+            background: #f8f9fa;
+            margin-bottom: 4px;
+            padding: 6px 10px;
+            border-left: 3px solid #3498db;
+            color: #000;
+        }
+
+        .cert-date {
+            float: right;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: transparent;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        @media print, (max-width: 768px) {
+            body {
+                max-width: 100%;
+                margin: 0;
+                padding: 5px;
+            }
+            
+            .header {
+                margin-bottom: 15px;
+                padding-bottom: 8px;
+            }
+            
+            .section {
+                margin-bottom: 12px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .input-section {
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
+
+        /* PDF-specific optimizations */
+        @media print {
+            * {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            html, body {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 3px !important;
+                font-size: 9px !important;
+            }
+            
+            .container {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .header {
+                margin-bottom: 12px !important;
+                padding: 8px 0 !important;
+            }
+            
+            .section {
+                margin-bottom: 12px !important;
+                padding: 0 3px !important;
+            }
+            
+            .experience-item, .education-item, .project-item {
+                margin-bottom: 8px !important;
+            }
+        }
+
+        /* Special PDF-ready class */
+        .pdf-ready {
+            margin: 0 !important;
+            padding: 3px !important;
+            width: 100% !important;
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        .pdf-ready .section {
+            padding: 0 5px !important;
+            margin-bottom: 15px !important;
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        .pdf-ready .header {
+            padding: 10px 0 !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .pdf-ready .objective {
+            font-size: 1.1em !important;
+            line-height: 1.6 !important;
+            margin-bottom: 10px !important;
+            display: block !important;
+            visibility: visible !important;
+            color: #333 !important;
+        }
+        
+        .pdf-ready .name {
+            font-size: 1.8em !important;
+            color: #000000 !important;
+        }
+        
+        .pdf-ready .title {
+            font-size: 1.05em !important;
+        }
+        
+        .pdf-ready .section-title {
+            font-size: 0.95em !important;
+        }
+        
+        .pdf-ready .job-title, .pdf-ready .degree {
+            font-size: 0.74em !important;
+        }
+        
+        .pdf-ready .contact-info {
+            font-size: 0.56em !important;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="header">
+        <div class="name">Rohit Gupta</div>
+        <div class="title">Java Full Stack Developer</div>
+        <div class="contact-info">
+            <div class="contact-item">
+                📧 <a>rohitgupta10020@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                📱 +91 971-190-5153
+            </div>
+            <div class="contact-item">
+                📍 Delhi, India 110089
+            </div>
+            <div class="contact-item">
+                💼 <a href="https://linkedin.com/in/rohit10020" target="_blank">LinkedIn Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <div class="objective">
+            Experienced Java Full Stack Developer with <span class="highlight">5 years of proven expertise</span> in enterprise-grade backend (Java, Spring Boot, Microservices) and modern frontend (Angular, React, Next.js) technologies. Successfully <span class="highlight">designed 100+ screens, implemented 1000+ APIs, and authored 100+ integrations</span> across insurance, financial services, and enterprise domains. Demonstrated leadership in <span class="highlight">team management, system modernization, and DevOps implementation</span> with expertise in Docker, Jenkins CI/CD, and cloud technologies. Patent holder with <span class="highlight">10+ filed innovations</span> and multiple performance excellence awards. Proven track record in migrating legacy systems, implementing microservices architecture, and delivering scalable solutions for Fortune 500 clients including Allianz and SunLife.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+            <div class="skill-category">Programming Languages:</div>
+            <div class="skill-list">Core Java, Advanced Java (Collections, Exception Handling, OOPs), TypeScript, JavaScript, SQL</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Frameworks:</div>
+            <div class="skill-list">Spring Boot (Spring Security, Spring Data, REST API), Angular 11, React, ColdFusion, Next.js</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Frontend Technologies:</div>
+            <div class="skill-list">Angular 11 (Pipes, API Integration, Azure Authentication), React, Next.js, HTML5, CSS3, TypeScript, JavaScript, Thymeleaf</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Databases:</div>
+            <div class="skill-list">MongoDB (Data Mapping, Aggregation queries), MySQL, MSSQL</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Database Technologies:</div>
+            <div class="skill-list">Mainframe (DB2, IMS DB) modernization, IBM Classic Federation</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">AI/ML Technologies:</div>
+            <div class="skill-list">OpenAI GPT-4o mini integration, AI-powered applications</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">DevOps & Build Tools:</div>
+            <div class="skill-list">Jenkins (UI Job, Pipeline, Script), CloudBees, Maven, Gradle, Ant, Docker, Spinnaker</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">APIs & Microservices:</div>
+            <div class="skill-list">OpenAPI, Swagger, Postman, SoapUI, Jersey API, REST, Microservices, BFF architecture</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Servers & Middleware:</div>
+            <div class="skill-list">Apache Axis, Tomcat, Liberty Server, EJB, Kafka, Avro, Docker</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Testing & Quality:</div>
+            <div class="skill-list">JUnit, Mockito, Jest, Jacoco, JASYPT, OWASP, SonarQube</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Caching & Monitoring:</div>
+            <div class="skill-list">Hazelcast, EhCache, Distributed caching, Slf4j, log4j, Dynatrace, AWS CloudWatch</div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">Tools & Methodologies:</div>
+            <div class="skill-list">JIRA, Confluence, GitHub, GitHub Copilot, Bitbucket, Agile, DCP, Holocron Vault, VS Code Extension development, PDF Designer</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+        
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Development Analyst</div>
+                    <div class="company">SunLife Global Solutions, Gurugram</div>
+                </div>
+                <div class="duration">April 2023 – Present</div>
+            </div>
+            
+            <div class="project-title">Member EOI Project</div>
+            <div class="job-description">
+                <ul>
+                    <li>Lead Full Stack Developer for Member EOI project using Next.js + Spring Boot stack</li>
+                    <li><span class="highlight">Designed 25-page dynamic PDF reports</span> using Thymeleaf templates and Flying Saucer for complex data visualization and member documentation</li>
+                    <li>Managed end-to-end release cycles and QA/stage deployments</li>
+                    <li>Modernized legacy systems and enabled CI/CD with Jenkins</li>
+                </ul>
+            </div>
+
+            <div class="project-title">Claim Interest Calculator Project</div>
+            <div class="job-description">
+                <ul>
+                    <li><span class="highlight">Leading a team of 5 members</span>, overseeing project estimations and sprint planning using Agile methodology</li>
+                    <li>Modernization of legacy insurance system from VB6 to contemporary tech stack (Spring Boot + React)</li>
+                    <li>Set up initial project architecture with comprehensive integrations including Jacoco for code coverage, JASYPT for encryption, SonarQube for code quality, OWASP for security, MSSQL database, OpenAPI & Swagger for API documentation</li>
+                    <li>Implemented Docker for image builds and containerization</li>
+                    <li>Conducted Proof of Concept (POC) on Hazelcast & EhCache and implemented distributed caching</li>
+                </ul>
+            </div>
+
+            <div class="project-title">CustomerLink Project</div>
+            <div class="job-description">
+                <ul>
+                    <li>Migrated server from Weblogic to Liberty and <span class="highlight">upgraded Java from Java 2 to Java 17</span></li>
+                    <li>Converted <span class="highlight">20+ modules from Ant to Gradle</span> and transitioned <span class="highlight">25+ APIs from RPC to REST</span></li>
+                    <li>Developed Jenkins UI Job for 60+ Java modules and created parent Jenkins pipeline</li>
+                    <li>Conducted POCs for tools like EJB3, Apache Axis2, JMS, JBoss</li>
+                    <li>Created extensive documentation for legacy systems to assist developers and QAs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Associate Technical Analyst</div>
+                    <div class="company">Deloitte Consulting USI, Gurugram</div>
+                </div>
+                <div class="duration">November 2020 – April 2023</div>
+            </div>
+            <div class="job-description">
+                <ul>
+                    <li>Worked as full stack developer for client Allianz, with components live on <a href="https://my-allianz-commercial.com" class="project-link">my-allianz-commercial.com</a></li>
+                    <li>Developed XLS export feature and set up new modules like Billing & Risk Engineering, including backend (SpringBoot), frontend (Angular), and database (MongoDB)</li>
+                    <li><span class="highlight">Delivered 200+ stories with minimal defects</span> and automated manual work with schedulers</li>
+                    <li>Worked on microservice restructuring having significant impact to make the portal efficient & scalable</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        
+        <div class="education-item">
+            <div class="edu-header">
+                <div>
+                    <div class="degree">Master of Computer Applications (MCA)</div>
+                    <div class="institution">Amity University, Noida</div>
+                </div>
+                <div class="duration">July 2020 – November 2022</div>
+            </div>
+            <div style="color: #000; margin-top: 5px;">
+                <strong>CGPA:</strong> 8.28/10.0
+            </div>
+        </div>
+
+        <div class="education-item">
+            <div class="edu-header">
+                <div>
+                    <div class="degree">Bachelor of Computer Applications (BCA)</div>
+                    <div class="institution">Amity University, Noida</div>
+                </div>
+                <div class="duration">July 2017 – July 2020</div>
+            </div>
+            <div style="color: #000; margin-top: 5px;">
+                <strong>CGPA:</strong> 9.38/10.0 | <span class="highlight">Gold Medalist (1st Rank)</span><br>
+                <strong>Honors:</strong> Student of the Year (Best Student) 2020 Batch, Shree Baljit Shastri Award for Best in Human Values, Scholarship Award for Academic Excellence
+            </div>
+        </div>
+
+        <div class="education-item">
+            <div class="edu-header">
+                <div>
+                    <div class="degree">12th Grade (High School)</div>
+                    <div class="institution">Jain Bharati Mrigavati Vidyalaya (CBSE), Delhi</div>
+                </div>
+                <div class="duration">July 2015 – April 2017</div>
+            </div>
+            <div style="color: #000; margin-top: 5px;">
+                <strong>Percentage:</strong> 83.4%
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Personal Projects</div>
+        
+        <div class="project-item">
+            <div class="project-title">Mainframe Migration Assistant - VS Code Extension</div>
+            <div class="project-description">
+                <ul>
+                    <li><span class="highlight">Developed a comprehensive VS Code extension</span> for accelerating mainframe to modern technology migration with AI assistance</li>
+                    <li>Features COBOL to React frontend and Java Spring Boot backend migration capabilities with GitHub Copilot integration</li>
+                    <li>Includes AI-powered COBOL analysis, natural language documentation generation, modular business services refactoring, and automated code generation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">GenAI Hub - <a href="https://project-k-iota.vercel.app" class="project-link" target="_blank">project-k-iota.vercel.app</a></div>
+            <div class="project-description">
+                <ul>
+                    <li>Comprehensive platform featuring AI-powered games and chatbot functionality</li>
+                    <li>Includes Resume Builder, Swagger API Test Data Generator, Tick Tac Toe, Date Formatter, Regex Playground, JSON Validator, and Diff Checker</li>
+                    <li>Built using modern tech stack with responsive design and user-friendly interface</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Certifications</div>
+        <ul class="certifications-list">
+            <li>
+                <strong>AZ-500: Microsoft Azure Security Engineer</strong>
+                <span class="cert-date">January 2022</span>
+            </li>
+            <li>
+                <strong>AZ-900: Microsoft Azure Fundamentals</strong>
+                <span class="cert-date">December 2021</span>
+            </li>
+            <li>
+                <strong>AWS Certified Cloud Practitioner</strong>
+                <span class="cert-date">January 2021</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Awards & Achievements</div>
+        <ul class="achievements-list">
+            <li><strong>Performance Excellence Award</strong> – SunLife Global Solutions (2024)</li>
+            <li><strong>Applause Award</strong> – Deloitte Consulting (2021, 2023)</li>
+            <li><strong>Client Appreciation Award</strong> – Allianz (2022)</li>
+            <li><strong>Spot Award</strong> – Deloitte Consulting for work excellence (2021)</li>
+            <li><strong>Innovation & Automation</strong> – Filed 10+ patents for technical innovations</li>
+        </ul>
+    </div>
+    </div>
+</body>
+</html>
